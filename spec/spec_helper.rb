@@ -5,8 +5,9 @@ SimpleCov.start "gem"
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 
+require 'rake'
 require 'rspec'
-require 'active_record'
+require 'rails/all'
 require 'schema_monkey_rails'
 require 'schema_dev/rspec'
 

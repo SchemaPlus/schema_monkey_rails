@@ -5,7 +5,7 @@ require 'schema_monkey_rails/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "schema_monkey_rails"
-  spec.version       = SchemaMonkeyRails::VERSION
+  spec.version       = SchemaMonkey::Rails::VERSION
   spec.authors       = ["ronen barzel"]
   spec.email         = ["ronen@barzel.org"]
   spec.summary       = %q{TODO: Write a short summary. Required.}
@@ -19,7 +19,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "activerecord", "~> 4.2"
-  spec.add_dependency "schema_monkey", "~> 0.1"
+  spec.add_dependency "rails"
+  spec.add_dependency "schema_monkey", "~> 0.4"
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"

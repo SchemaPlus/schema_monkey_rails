@@ -1,3 +1,5 @@
-module SchemaMonkeyRails
-  VERSION = "0.1.0"
+module SchemaMonkey
+  module Rails
+    VERSION = "0.1.0"
+  end
 end
