@@ -7,13 +7,18 @@
 
 Arranges to insert [SchemaMonkey](https://github.com/SchemaPlus/schema_monkey) into a rails app--and with it will come all the ActiveRecord extensions based on it that you have included in your app.
 
-## Installation && Usage
+## Installation & Usage
 
 In your application's Gemfile
 
 ```ruby
 gem "schema_monkey_rails"
 ```
+
+That's all you need to do.  When the gem is loaded, it will define a Railtie that will insert SchemaMonkey appropriately.
+
+If `Rails::Railtie` isn't defined, this gem does nothing.
+
 ## Compatibility
 
 SchemaMonkey::Rails is tested on:
@@ -24,7 +29,7 @@ SchemaMonkey::Rails is tested on:
 * ruby **2.1.5** with activerecord **4.2**, using **mysql2**, **sqlite3** or **postgresql**
 
 <!-- SCHEMA_DEV: MATRIX - end -->
-That's it.  Just require the gem and it will define a Railtie that will insert SchemaMonkey appropriately.
+
 
 ## History
 
