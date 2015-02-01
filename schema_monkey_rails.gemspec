@@ -8,8 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = SchemaMonkey::Rails::VERSION
   spec.authors       = ["ronen barzel"]
   spec.email         = ["ronen@barzel.org"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Inserts SchemaMonkey into a rails app.}
   spec.homepage      = "https://github.com/SchemaPlus/schema_monkey_rails"
   spec.license       = "MIT"
 
