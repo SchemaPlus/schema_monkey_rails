@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "activerecord", "~> 4.2"
   spec.add_dependency "rails"
-  spec.add_dependency "schema_monkey", "~> 0.4", ">= 0.4.1"
+  spec.add_dependency "schema_monkey", "~> 1.0"
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
