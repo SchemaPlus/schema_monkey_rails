@@ -26,12 +26,15 @@ describe SchemaMonkey::Rails do
     Rails.application.initialize!
   end
 
+  after(:each) do
+    @client.reset
+  end
+
   it "inserts client into app" do
     expect(@client).to be_inserted
   end
 
   it "inserts client into rake" do
-    @client.reset
     expect { Rake::Task["db:schema:dump"].invoke }.to raise_error(Errno::ENOENT)
     expect(@client).to be_inserted
   end
