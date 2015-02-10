@@ -1,5 +1,25 @@
 require 'spec_helper'
 
+module Client
+  module ActiveRecord
+    module Base
+      def self.prepended(base)
+        Client.inserted
+      end
+    end
+  end
+
+  def self.inserted
+    @inserted = true
+  end
+  def self.inserted?
+    @inserted
+  end
+  def self.reset
+    @inserted = false
+  end
+end
+
 describe SchemaMonkey::Rails do
 
   before(:all) do
@@ -7,19 +27,7 @@ describe SchemaMonkey::Rails do
     Kernel.const_set "Dummy", Class.new(Rails::Application) { config.eager_load = true }
     ENV['DATABASE_URL'] = "#{SchemaDev::Rspec.db_configuration[:adapter]}://localhost/dummy"
 
-    @client = Module.new do
-      def self.insert
-        @inserted = true
-      end
-      def self.inserted?
-        @inserted
-      end
-      def self.reset
-        @inserted = false
-      end
-    end
-
-    SchemaMonkey.register(@client)
+    SchemaMonkey.register Client
 
     Rake.application = Rake::Application.new
     Rails.application.load_tasks
@@ -27,16 +35,16 @@ describe SchemaMonkey::Rails do
   end
 
   after(:each) do
-    @client.reset
+    Client.reset
   end
 
   it "inserts client into app" do
-    expect(@client).to be_inserted
+    expect(Client).to be_inserted
   end
 
   it "inserts client into rake" do
     expect { Rake::Task["db:schema:dump"].invoke }.to raise_error(Errno::ENOENT)
-    expect(@client).to be_inserted
+    expect(Client).to be_inserted
   end
 
 end
