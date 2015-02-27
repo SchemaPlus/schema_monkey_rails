@@ -1,9 +1,4 @@
-require 'schema_monkey'
-
-module SchemaMonkey
-  module Rails
-  end
-end
-
+require 'active_support/all'
 require_relative 'schema_monkey_rails/version'
-require_relative 'schema_monkey_rails/railtie' if defined?(::Rails::Railtie)
+
+ActiveSupport::Deprecation.warn "gem schema_monkey_rails is deprecated, it's no longer necessary.  You may remove it from your Gemfile/gemspec"
